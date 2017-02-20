@@ -1,0 +1,17 @@
+<link href="css/stylesheets/user_settings.css" rel="stylesheet">
+<div ng-controller='UserSettingsCtrl' class='body'>
+	<div ng-if='login' data-ng-init='init()' id='main'>
+		<h1 class='page-label'>[[username]]</h1>
+		<div class='block'><label class='info-label'>Email: &nbsp;</label><label class='info'> [[email]]</label></div>
+		<div class='block' ng-show='fullname!=""'><label class='info-label'>Fullname: &nbsp;</label><label class='info'> [[fullname]]</label></div>
+		<div class='block'><label class='info-label'>Date joined: &nbsp;</label><label class='info'> [[date_joined]]</label></div>
+		<h3 class='head'>Reset Password:</h3>
+		<form name='passForm'>
+			<div class='block'><label class='input-label'>Current Password: </label><input class='input' type='password' name='oldpassword' ng-model='password.current_password' required></div><span class='pull-right' ng-show="(passForm.oldpassword.$error.required && passForm.oldpassword.$touched)">This field is required.</span><br/>
+			
+			<div class='block'><label class='input-label'>New Password: </label><input class='input' type='password' name='newpassword' ng-model='password.new_password' required></div><span class='pull-right' ng-show="(passForm.newpassword.$error.required && passForm.newpassword.$touched)">This field is required.</span></br>
+			<button class='btn btn-warning' ng-click='passForm.$valid && reset()'>Reset</button>
+		</form>
+	</div>
+	<div ng-if='!login' class='msg'>You must login to view this!</div>
+</div>

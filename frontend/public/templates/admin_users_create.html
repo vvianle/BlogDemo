@@ -1,0 +1,36 @@
+<link href="css/stylesheets/admin_users_create.css" rel="stylesheet">
+<div ng-controller='AdminUsersCreateCtrl' class='body'>
+	<div ng-if='admin'>
+		<h1 class='page-label'>Create New User</h1>
+		<form name='userForm'>
+			<div class='text'>
+				<label class='input-label'>Username:</label> <input class='text-input' type='text' name='username' ng-model='user.username' required><br/>
+				<span class='pull-right' ng-show="(userForm.username.$error.required && userForm.username.$touched)">This field is required.</span>
+				<span class='pull-right' ng-show="(userForm.username.$invalid && userForm.username.$touched && !userForm.username.$error.required)">Wrong format.</span>
+			</div>
+			<div class='text'>
+				<label class='input-label'>Email:</label> <input class='text-input' type='email' name='email' ng-model='user.email' required></br>
+				<span class='pull-right' ng-show="(userForm.email.$error.required && userForm.email.$touched)">This field is required.</span>
+				<span class='pull-right' ng-show="(userForm.email.$invalid && userForm.email.$touched && !userForm.email.$error.required)">Wrong format.</span>
+			</div>
+			<div class='text'>
+				<label class='input-label'>Password:</label> <input class='text-input' type='password' name='password' ng-model='user.password' required></br>
+				<span class='pull-right' ng-show="(userForm.password.$error.required && userForm.password.$touched)">This field is required.</span>
+				<span class='pull-right' ng-show="(userForm.password.$invalid && userForm.password.$touched && !userForm.password.$error.required)">Wrong format.</span>
+			</div>
+			<label class='input-label'>Full name:</label> <input class='text-input' type='text' name='fullname' ng-model='user.fullname'>
+			
+			<div class='check'>
+				<input type='checkbox' name='is_active' ng-model='user.is_active' ng-init='user.is_active=true'><label>Is active</label></div>
+			
+			<div class='check'>
+				<input type='checkbox' name='is_admin' ng-model='user.is_admin' ng-init='user.is_admin=false'><label>Is admin</label> </div>
+			
+			<div class='check'>
+				<input type='checkbox' name='is_author' ng-model='user.is_author' ng-init='user.is_author=false'><label>Is Author</label></div> <br/>
+			<button class='btn btn-warning' ng-click='userForm.$valid && create()'>Create</button>
+		</form>
+	</div>
+	<div class='msg' ng-if='!login'>You must login to view this!</div>
+	<div class='msg' ng-if='login && !admin' ng-hide='!login'>You do not have permission to view this!</div>
+</div>

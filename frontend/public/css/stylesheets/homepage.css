@@ -1,0 +1,86 @@
+.body{
+    margin-bottom: 30px;
+    padding:25px 35px
+}
+
+.edit-icon {
+    width: 20px;
+}
+
+.title-block {
+    display: inline-block;
+}
+
+.edit {
+    float: right;
+    margin-top: 15px;
+}
+
+.content-block {
+    width: 100%;
+    padding-right: 5pt;
+    font-weight: 500;
+}
+
+.content {
+    font-size: 16px;
+    padding-top: 1px;
+    display: block;
+}
+
+#post-page {
+    margin-bottom: 190px;
+}
+
+td {
+    vertical-align: top;
+}
+
+span.datetime {
+    margin-right: 10pt;
+    color: #444;
+    display: inline-block;
+    width: 120px;
+    font-size: 14px;
+    padding-top: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.cmt-notice {
+    display: inline-block;
+    margin-top: 5pt;
+    font-size: 12px;
+    font-style: italic;
+    width: 100%;
+    text-align: right;
+}
+
+span.username {
+    margin-right: 25pt;
+    color: #444;
+    display: inline-block;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    height: 30px;
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+span.title {
+    font-weight: bold;
+    font-size: 22pt;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 6px;
+}
+
+a {
+    text-decoration: none !important;
+    color: black;
+}

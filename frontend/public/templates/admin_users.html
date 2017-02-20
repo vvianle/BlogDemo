@@ -1,0 +1,34 @@
+<link href="css/stylesheets/admin_users.css" rel="stylesheet">
+<div  ng-controller='AdminUsersCtrl' class='body'>
+	<div ng-if='admin' data-ng-init='init()'>
+		<h1 class='page-label'>Member List </h1>
+		<div id='table'>
+			<table class='table-striped table-bordered table-hover'>
+				<thead>
+					<tr>
+						<th>TT</th>
+						<th>Username</th>
+						<th>Email</th>
+						<th>Full name</th>
+						<th>Active</th>
+						<th>Admin</th>
+						<th>Author</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat='member in members track by $index'>
+						<td class='small'>[[$index+1]]</td>
+						<td><a href='#admin/users/[[member.id]]/'>[[member.username]]</a></td>
+						<td>[[member.email]]</td>
+						<td class='small'>[[member.fullname]]</td>
+						<td><img class='check' src='img/circle.png' ng-show='member.is_active'/></td>
+						<td><img class='check' src='img/circle.png' ng-show='member.is_admin'></td>
+						<td><img class='check' src='img/circle.png' ng-show='member.is_author'></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class='msg' ng-if='!login'>You must login to view this!</div>
+	<div class='msg' ng-if='login && !admin' ng-hide='!login'>You do not have permission to view this!</div>
+</div>

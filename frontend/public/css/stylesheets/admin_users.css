@@ -1,0 +1,54 @@
+.check {
+	width: 14px;
+}
+
+table {
+	width: 100%;
+	font-size: 15px;
+	margin-bottom: 4%;
+}
+
+#table {
+	overflow: auto;
+}
+
+.small {
+	font-weight: 500;
+}
+
+th {
+	text-align: center;
+}
+
+th:nth-child(1), td:nth-child(1) {
+	width: 5%;
+	min-width: 30px;
+	text-align: center;
+}
+
+th:nth-child(2), td:nth-child(2), th:nth-child(4), td:nth-child(4) {
+	width: 20%;
+	min-width: 80px;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+th:nth-child(3), td:nth-child(3) {
+	width: 25%;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6), th:nth-child(7), td:nth-child(7) {
+	width: 10%;
+	min-width: 60px;
+	text-align: center;
+}
+
+td, th {
+	height: 40px;
+}
+
+td {
+	font-size: 14px;
+}

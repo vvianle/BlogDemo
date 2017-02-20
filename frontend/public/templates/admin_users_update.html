@@ -1,0 +1,37 @@
+<link href="css/stylesheets/admin_users_create.css" rel="stylesheet">
+<div  ng-controller='AdminUsersUpdateCtrl' class='body'>
+	<div ng-if='admin' data-ng-init='init()'>
+		<h1 class='page-label'>Update Member: <label id='name'>[[n]]</label></h1>
+		<form name='userForm'>
+			<div class='text'>
+				<label class='input-label'>Username:</label> <input class='text-input' type='text' name='username' ng-model='user.username' required><br/>
+				<span class='pull-right' ng-show="(userForm.username.$error.required && userForm.username.$touched)">This field is required.</span>
+				<span class='pull-right' ng-show="(userForm.username.$invalid && userForm.username.$touched && !userForm.username.$error.required)">Wrong format.</span>
+			</div>
+			<div class='text'>
+				<label class='input-label'>Email:</label> <input class='text-input' type='email' name='email' ng-model='user.email' required></br>
+				<span class='pull-right' ng-show="(userForm.email.$error.required && userForm.email.$touched)">This field is required.</span>
+				<span class='pull-right' ng-show="(userForm.email.$invalid && userForm.email.$touched && !userForm.email.$error.required)">Wrong format.</span>
+			</div>
+			<div class='text'>
+				<label class='input-label'>Password:</label> <input class='text-input' type='password' name='password' ng-model='user.password'></br>
+				<span class='pull-right' ng-show="(userForm.password.$invalid && userForm.password.$touched && !userForm.password.$error.required)">Wrong format.</span>
+			</div>
+			<label class='input-label'>Full name:</label> <input class='text-input' type='text' name='fullname' ng-model='user.fullname'>
+			<div class='check' id='ad'>
+				<input type='checkbox' name='is_admin' ng-model='user.is_admin'><label>Is admin</label> </div>
+			
+			<div class='check'>
+				<input type='checkbox' name='is_author' ng-model='user.is_author'><label>Is Author</label></div><br/>
+			<div class='col-sm-6'><button class='btn btn-primary my-btn' ng-click='userForm.$valid && update()'>Update</button></div>
+			<div class='col-sm-6'><button class='btn btn-danger my-btn' ng-if='(user.is_active)' ng-click='deactivate()'>Deactivate</button>
+			<button class='btn btn-danger my-btn' ng-if='!(user.is_active)' ng-click='activate()'>Activate</button></div>
+		</form>
+	</div>
+	<!-- <div class='col-sm-3'>
+		<a ui-sref='admin_users_create'><p>Create New User</p></a>
+		<a ui-sref='admin_users'><p>Update Users Info</p></a>
+	</div> -->
+	<div class='msg' ng-if='!login'>You must login to view this!</div>
+	<div class='msg' ng-if='login && !admin' ng-hide='!login'>You do not have permission to view this!</div>
+</div>

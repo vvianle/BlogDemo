@@ -1,0 +1,19 @@
+<link href="css/stylesheets/admin_users_create.css" rel="stylesheet">
+<div ng-controller='UpdatePostCtrl' class='body' data-ng-init='init()'>
+	<div ng-if='(owner && author) || admin'>
+		<h1 class='page-label'>Update Post</h1>
+		<form name='updateForm'>
+			<div class='text'>
+				<label class='input-label'>Title:</label> <input class='text-input' type='text' name='title' ng-model='post.title' required><br/>
+				<span class='pull-right' ng-show="(updateForm.title.$error.required && updateForm.title.$touched)">This field is required.</span>
+			</div>
+			<div class='text'>
+				<label class='input-label'>Content:</label> <textarea class='text-input' type='text' name='content' ng-model='post.content' required></textarea></br>
+				<span class='pull-right' ng-show="(updateForm.content.$error.required && updateForm.content.$touched)">This field is required.</span>
+			</div>
+			<button class='btn btn-warning' ng-click='updateForm.$valid && update()'>Update!</button>
+		</form>
+	</div>
+	<div class='msg' ng-if='!login'>You must login to view this!</div>
+	<div class='msg' ng-if='!(owner && author) && !admin' ng-hide='!login'>You do not have permission to view this!</div>
+</div>

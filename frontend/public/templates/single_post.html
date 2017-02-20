@@ -1,0 +1,57 @@
+<link href="css/stylesheets/homepage.css" rel="stylesheet">
+<link href="css/stylesheets/post.css" rel="stylesheet">
+<div id='post-page' ng-controller='SinglePostCtrl' data-ng-init='init()'>
+	<div class='body'>
+		<table>
+			<tr>
+				<td>
+					<div>
+						<span class="username">[[post.author.username]]</span>
+					</div>
+					<div>
+						<span class="datetime">[[convertTimestamp(post.date)]]</span>
+					</div>
+				</td>
+				<td class="content-block">
+					<div>
+						<div class='title-block'>
+							<span class="title">[[post.title]]</span>
+						</div>
+						<div class='title-block edit'>
+							<a href='#/posts/[[post.id]]/edit/'>
+								<img class='edit-icon' src='img/edit.png' ng-show='username == post.author.username'/>
+							</a>
+						</div>
+					</div>
+					<span class="content">[[post.content]]</span><br>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class='body comment' ng-repeat='comment in comments track by $index'>
+		<table>
+			<tr>
+				<td>
+					<div>
+						<span class="comment-username">[[comment.author.username]]</span>
+					</div>
+				</td>
+				<td class="content-block">
+					<span class="content comment-content">[[comment.content]]</span>
+					<span class="cmt-notice">[[convertTimestamp(comment.timestamp)]]</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div ng-hide='!login' class='comment-form body comment'>
+		<form name='commentForm'>
+			<div>
+				<textarea class='text-input' type='text' name='content' ng-model='cmt.content' required></textarea><br>
+				<span class='pull-right' ng-show="(commentForm.content.$error.required && commentForm.content.$touched)">This field is required.</span>
+			</div>
+			<button class='btn btn-warning' ng-click='commentForm.$valid && comment()'>Comment!</button>
+		</form>
+	</div>
+</div>

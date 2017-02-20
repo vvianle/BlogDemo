@@ -1,0 +1,25 @@
+<link href="css/stylesheets/homepage.css" rel="stylesheet">
+<div id='post-page' ng-controller='PostCtrl' data-ng-init='init()'>
+	<div ng-repeat='post in posts track by $index' class='body'>
+		<table>
+			<tr>
+				<td>
+					<div>
+						<span class="username">[[post.author.username]]</span>
+					</div>
+					<div>
+						<span class="datetime">[[convertTimestamp(post.date)]]</span>
+					</div>
+				</td>
+				<td class="content-block">
+					<div>
+						<div class='title-block'><a href='#/posts/[[post.id]]/'><span class="title">[[post.title]]</span></a></div>
+						<div class='title-block edit'><a href='#/posts/[[post.id]]/edit/'><img class='edit-icon' src='img/edit.png' ng-show='username == post.author.username'/></a></div>
+					</div>
+					<a href='#/posts/[[post.id]]/'><span class="content">[[post.content]]</span><br>
+					<span class="cmt-notice">[[getNumComment($index)]] Comment(s)</span></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
